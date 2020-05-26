@@ -11,7 +11,7 @@ A Docker swarm service for automatically updating your services whenever their b
     docker service create --name shepherd \
                           --constraint "node.role==manager" \
                           --mount type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock,ro \
-                          mazzolino/shepherd
+                          mnestor/shepherd
 
 ## Or with docker-compose
     version: "3"
@@ -19,7 +19,7 @@ A Docker swarm service for automatically updating your services whenever their b
       ...
       shepherd:
         build: .
-        image: mazzolino/shepherd
+        image: mnestor/shepherd
         volumes:
           - /var/run/docker.sock:/var/run/docker.sock
         deploy:
@@ -56,7 +56,7 @@ Example:
                         --env APPRISE_SIDECAR_URL="apprise-microservice:5000" \
                         --mount type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock,ro \
                         --mount type=bind,source=/root/.docker/config.json,target=/root/.docker/config.json,ro \
-                        mazzolino/shepherd
+                        mnestor/shepherd
 
 ## How does it work?
 
