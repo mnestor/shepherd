@@ -84,10 +84,10 @@ steps:
         from_secret: docker_password
       platforms:
         - linux/amd64
-        - linux/arm
+        # - linux/arm
         - linux/arm64
 
 depends_on:
   - amd64
-  - arm
+  # - arm
   - arm64

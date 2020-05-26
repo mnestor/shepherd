@@ -11,11 +11,11 @@ manifests:
     platform:
       architecture: amd64
       os: linux
-  -
-    image: mnestor/shepherd:{{#if build.tag}}{{trimPrefix build.tag "v"}}-{{/if}}arm
-    platform:
-      architecture: arm
-      os: linux
+#  -
+#    image: mnestor/shepherd:{{#if build.tag}}{{trimPrefix build.tag "v"}}-{{/if}}arm
+#    platform:
+#      architecture: arm
+#      os: linux
   -
     image: mnestor/shepherd:{{#if build.tag}}{{trimPrefix build.tag "v"}}-{{/if}}arm64
     platform:
