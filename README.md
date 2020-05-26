@@ -1,5 +1,6 @@
 # Shepherd
 
+[![Build Status](https://cloud.drone.io/api/badges/mnestor/shepherd/status.svg)](https://cloud.drone.io/mnestor/shepherd)
 [![Docker Stars](https://img.shields.io/docker/stars/mnestor/shepherd.svg)](https://hub.docker.com/r/mnestor/shepherd/) [![Docker Pulls](https://img.shields.io/docker/pulls/mnestor/shepherd.svg)](https://hub.docker.com/r/mnestor/shepherd/)
 
 Clone of [djmaze/shepherd](https://github.com/djmaze/shepherd) to use cron instead of sleep so you can set more complicated run times. Like every 5 minutes only in the early hours of the day (CRON="*/5 0-5 * * *")
