@@ -11,7 +11,7 @@ steps:
     settings:
       auto_tag: true
       auto_tag_suffix: amd64
-      repo: mazzolino/shepherd
+      repo: mnestor/shepherd
       username:
         from_secret: docker_username
       password:
@@ -35,7 +35,7 @@ steps:
     settings:
       auto_tag: true
       auto_tag_suffix: arm
-      repo: mazzolino/shepherd
+      repo: mnestor/shepherd
       username:
         from_secret: docker_username
       password:
@@ -59,7 +59,7 @@ steps:
     settings:
       auto_tag: true
       auto_tag_suffix: arm64
-      repo: mazzolino/shepherd
+      repo: mnestor/shepherd
       username:
         from_secret: docker_username
       password:
