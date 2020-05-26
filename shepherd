@@ -53,9 +53,8 @@ update_services() {
 }
 
 main() {
-  local blacklist sleep_time supports_detach_option supports_registry_auth
+  local blacklist supports_detach_option supports_registry_auth
   blacklist="${BLACKLIST_SERVICES:-}"
-  sleep_time="${SLEEP_TIME:-5m}"
 
   supports_detach_option=false
   if [[ "$(server_version)" > "17.05" ]]; then
@@ -83,11 +82,7 @@ main() {
 
   [[ "$blacklist" != "" ]] && echo "Excluding services: $blacklist"
 
-  while true; do
-    update_services "$blacklist" "$supports_detach_option" "$supports_registry_auth" "$supports_insecure_registry" "$supports_no_resolve_image"
-    echo "Sleeping $sleep_time before next update"
-    sleep "$sleep_time"
-  done
+  update_services "$blacklist" "$supports_detach_option" "$supports_registry_auth" "$supports_insecure_registry" "$supports_no_resolve_image"
 }
 
 main "$@"

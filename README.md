@@ -1,7 +1,8 @@
 # Shepherd
 
-[![Build Status](https://ci.strahlungsfrei.de/api/badges/djmaze/shepherd/status.svg)](https://ci.strahlungsfrei.de/djmaze/shepherd)
-[![Docker Stars](https://img.shields.io/docker/stars/mazzolino/shepherd.svg)](https://hub.docker.com/r/mazzolino/shepherd/) [![Docker Pulls](https://img.shields.io/docker/pulls/mazzolino/shepherd.svg)](https://hub.docker.com/r/mazzolino/shepherd/)
+[![Docker Stars](https://img.shields.io/docker/stars/mnestor/shepherd.svg)](https://hub.docker.com/r/mnestor/shepherd/) [![Docker Pulls](https://img.shields.io/docker/pulls/mnestor/shepherd.svg)](https://hub.docker.com/r/mnestor/shepherd/)
+
+Clone of [djmaze/shepherd](https://github.com/djmaze/shepherd) to use cron instead of sleep so you can set more complicated run times. Like every 5 minutes only in the early hours of the day (CRON="*/5 0-5 * * *")
 
 A Docker swarm service for automatically updating your services whenever their base image is refreshed.
 
@@ -28,7 +29,7 @@ A Docker swarm service for automatically updating your services whenever their b
 
 ### Configuration
 
-Shepherd will try to update your services every 5 minutes by default. You can adjust this value using the `SLEEP_TIME` variable.
+Shepherd will try to update your services every 5 minutes by default. You can adjust this value using the `CRON` variable.
 
 You can prevent services from being updated by appending them to the `BLACKLIST_SERVICES` variable. This should be a space-separated list of service names.
 
@@ -46,7 +47,7 @@ Example:
 
     docker service create --name shepherd \
                         --constraint "node.role==manager" \
-                        --env SLEEP_TIME="5m" \
+                        --env CRON="*/5 * * * *" \
                         --env BLACKLIST_SERVICES="shepherd my-other-service" \
                         --env WITH_REGISTRY_AUTH="true" \
                         --env WITH_INSECURE_REGISTRY="true" \
