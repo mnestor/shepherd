@@ -2,4 +2,4 @@
 
 echo "${CRON} /usr/local/bin/shepherd" > /etc/crontabs/root
 
-/usr/sbin/crond -l 2 -f -L /dev/stdout
+/usr/sbin/crond -f -l 6 -L /dev/stdout -d 6
