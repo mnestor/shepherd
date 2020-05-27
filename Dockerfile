@@ -1,13 +1,9 @@
 FROM docker
 
-ENV CRON='*/5 * * * *'
-ENV FILTER_SERVICES=''
+ENV CRON='*/5 * * * *' \
+    FILTER_SERVICES=''
 
-RUN apk add --update --no-cache bash curl
+COPY shepherd entrypoint.sh /usr/local/bin/
+RUN apk add --update --no-cache bash curl && chmod +x /usr/local/bin/entrypoint.sh
 
-COPY shepherd /usr/local/bin/shepherd
-COPY entrypoint.sh /entrypoint.sh
-
-RUN chmod +x /entrypoint.sh
-
-CMD ["/entrypoint.sh"]
+CMD ["/usr/local/bin/entrypoint.sh"]
